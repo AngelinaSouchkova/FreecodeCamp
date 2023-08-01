@@ -67,16 +67,22 @@ suite('Functional Tests', function () {
           assert.equal(res.body.surname, 'da Verrazzano');
           done();
         });
+      
     });
+    
   });
+  
 });
 
 const Browser = require('zombie');
+Browser.site = 'https://freecodecamp.angelinasouchko.repl.co/';
+suiteSetup(function(done) {
+  return Browser.visit('/', done);
+});
 
 suite('Functional Tests with Zombie.js', function () {
   this.timeout(5000);
-
-
+  
 
   suite('Headless browser', function () {
     test('should have a working "site" property', function() {
@@ -97,5 +103,7 @@ suite('Functional Tests with Zombie.js', function () {
 
       done();
     });
+    
   });
+  
 });
